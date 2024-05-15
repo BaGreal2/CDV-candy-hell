@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxerMoveController : MonoBehaviour
 {
-	public float moveSpeed = 5f;
+	public float moveSpeed = 2f;
 	private float minX, maxX, minY, maxY;
 	// Start is called before the first frame update
 	void Start()

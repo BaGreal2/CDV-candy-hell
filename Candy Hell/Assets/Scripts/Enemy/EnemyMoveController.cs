@@ -7,7 +7,6 @@ public class EnemyMoveController : MonoBehaviour
 	public float moveSpeed;
 	public float yScaleFactor;
 	public float avoidanceDistance = 1.5f;
-	public GameObject player;
 
 	void Start()
 	{
@@ -15,6 +14,7 @@ public class EnemyMoveController : MonoBehaviour
 
 	void Update()
 	{
+		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
 		Transform playerTransform = player.transform;
 		Vector3 playerPosition = playerTransform.position;
 		Vector3 playerVectorDistance = playerPosition - transform.position;

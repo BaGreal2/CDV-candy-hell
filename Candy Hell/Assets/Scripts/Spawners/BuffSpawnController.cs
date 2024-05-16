@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class BuffSpawnController : MonoBehaviour
 {
-	private Collider spawnArea;
+	private BoxCollider2D spawnArea;
 
 	public GameObject pearPrefab;
 	public GameObject alcoholPrefab;
@@ -24,7 +24,7 @@ public class BuffSpawnController : MonoBehaviour
 
 	private void Awake()
 	{
-		spawnArea = GetComponent<Collider>();
+		spawnArea = GetComponent<BoxCollider2D>();
 	}
 
 	private void OnEnable()
@@ -58,11 +58,11 @@ public class BuffSpawnController : MonoBehaviour
 
 			Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
 
-			GameObject pear = Instantiate(prefab, position, rotation);
-			Destroy(pear, maxLifetime);
+			GameObject buff = Instantiate(prefab, position, rotation);
+			Destroy(buff, maxLifetime);
 
 			float force = Random.Range(minForce, maxForce);
-			pear.GetComponent<Rigidbody>().AddForce(pear.transform.up * force, ForceMode.Impulse);
+			buff.GetComponent<Rigidbody2D>().AddForce(buff.transform.up * force, ForceMode2D.Impulse);
 
 			yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 		}

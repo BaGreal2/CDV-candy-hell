@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 592e2a4ef8ec540e4b78747ca790f283
+guid: 07aa113995fc4454ea0d58a2a9967669
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -231792337431117464
-    second: _507d073f-ea7a-46e5-ad6a-79276c95a0af_0
+      213: -7712670764203121989
+    second: Demon_Fight_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _507d073f-ea7a-46e5-ad6a-79276c95a0af_0
+      name: Demon_Fight_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 1024
-        height: 576
+        width: 22
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 861c2c1e81288ccf0800000000000000
-      internalID: -231792337431117464
+      spriteID: bb2e12eadc617f490800000000000000
+      internalID: -7712670764203121989
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Demon_Fight_0: -7712670764203121989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

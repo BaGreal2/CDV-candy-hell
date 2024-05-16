@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyStatsController : MonoBehaviour
 {
+	public Animator animator;
 	public float maxHealth = 100f;
 	float currentHealth;
 
@@ -26,6 +27,7 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Die()
 	{
+		animator.SetBool("IsDead", true);
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<EnemyMoveController>().enabled = false;
 		this.enabled = false;

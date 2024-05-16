@@ -26,7 +26,9 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Die()
 	{
-
+		GetComponent<Collider2D>().enabled = false;
+		GetComponent<EnemyMoveController>().enabled = false;
+		this.enabled = false;
 	}
 
 }

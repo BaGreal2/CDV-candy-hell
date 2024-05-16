@@ -46,7 +46,12 @@ public class EnemySpawnController : MonoBehaviour
 
 
 			GameObject enemySpawned = Instantiate(enemyPrefab, position, transform.rotation);
-			enemySpawned.transform.localScale = new Vector3(enemySpawned.transform.localScale.x, -1 * enemySpawned.transform.localScale.y, enemySpawned.transform.localScale.z);
+			if (isInverted)
+			{
+				Vector3 scale = enemySpawned.transform.localScale;
+				scale.x *= -1;
+				enemySpawned.transform.localScale = scale;
+			}
 			aliveAmount++;
 
 			yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));

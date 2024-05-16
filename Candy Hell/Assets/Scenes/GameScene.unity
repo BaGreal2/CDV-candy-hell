@@ -520,7 +520,7 @@ MonoBehaviour:
   minSpawnDelay: 7
   maxSpawnDelay: 14
   maxAliveAmount: 5
-  isInverted: 1
+  isInverted: 0
 --- !u!61 &1249348325
 BoxCollider2D:
   m_ObjectHideFlags: 0

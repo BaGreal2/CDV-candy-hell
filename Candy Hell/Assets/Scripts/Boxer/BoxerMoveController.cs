@@ -6,6 +6,7 @@ public class BoxerMoveController : MonoBehaviour
 {
 	public float moveSpeed = 2f;
 	private float minX, maxX, minY, maxY;
+	private bool facingRight = true;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -32,5 +33,17 @@ public class BoxerMoveController : MonoBehaviour
 		newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
 
 		transform.position = newPosition;
+		if ((horizontalInput > 0 && !facingRight) || (horizontalInput < 0 && facingRight))
+		{
+			Flip();
+		}
+	}
+
+	void Flip()
+	{
+		facingRight = !facingRight;
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 }

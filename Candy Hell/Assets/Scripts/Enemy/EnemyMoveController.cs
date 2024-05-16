@@ -7,13 +7,21 @@ public class EnemyMoveController : MonoBehaviour
 	public float moveSpeed;
 	public float yScaleFactor;
 	public float avoidanceDistance = 1.5f;
-	public GameObject player;
 
 	void Start()
 	{
 	}
 
 	void Update()
+	{
+		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
+		GameObject[] otherEnemies = GameObject.FindGameObjectsWithTag("EnemyTag");
+
+		MoveTowardsPlayer(player);
+		AvoidOtherEnemies(otherEnemies);
+	}
+
+	void MoveTowardsPlayer(GameObject player)
 	{
 		Transform playerTransform = player.transform;
 		Vector3 playerPosition = playerTransform.position;
@@ -25,8 +33,10 @@ public class EnemyMoveController : MonoBehaviour
 		{
 			transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 		}
+	}
 
-		GameObject[] otherEnemies = GameObject.FindGameObjectsWithTag("EnemyTag");
+	void AvoidOtherEnemies(GameObject[] otherEnemies)
+	{
 		foreach (GameObject otherEnemy in otherEnemies)
 		{
 			if (otherEnemy != gameObject) // Skip self

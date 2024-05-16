@@ -420,11 +420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae16629832144889bc3209192a21288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1807412338906880825, guid: b903df2c209634b68b3e3f07af9392c4, type: 3}
+  enemyPrefab: {fileID: 6857782849437382509, guid: cc4537947fe414f0eb0920215e3ea2e7, type: 3}
   minSpawnDelay: 7
   maxSpawnDelay: 14
   maxAliveAmount: 5
-  isInverted: 0
+  isInverted: 1
 --- !u!61 &1172227769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -516,11 +516,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae16629832144889bc3209192a21288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1807412338906880825, guid: b903df2c209634b68b3e3f07af9392c4, type: 3}
+  enemyPrefab: {fileID: 6857782849437382509, guid: cc4537947fe414f0eb0920215e3ea2e7, type: 3}
   minSpawnDelay: 7
   maxSpawnDelay: 14
   maxAliveAmount: 5
-  isInverted: 0
+  isInverted: 1
 --- !u!61 &1249348325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ PrefabInstance:
     - target: {fileID: 6170887028760996851, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -231792337431117464, guid: 3d3cf1cdbdf5b4da28753ee8b1924ec6, type: 3}
+      objectReference: {fileID: -231792337431117464, guid: 592e2a4ef8ec540e4b78747ca790f283, type: 3}
     - target: {fileID: 6170887028760996851, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

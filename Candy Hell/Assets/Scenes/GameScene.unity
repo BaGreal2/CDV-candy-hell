@@ -755,9 +755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37be097f9549b2146a731157f7a576e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pearPrefab:
-  - {fileID: 7343062375214659936, guid: 2a71705ae7ef17748b1feb1794f5ddaf, type: 3}
-  AlcoholPrefab: {fileID: 2333543486834748423, guid: 0960f948fffdce54e9b465ccb32f653d, type: 3}
+  pearPrefab: {fileID: 7343062375214659936, guid: 2a71705ae7ef17748b1feb1794f5ddaf, type: 3}
+  alcoholPrefab: {fileID: 2333543486834748423, guid: 0960f948fffdce54e9b465ccb32f653d, type: 3}
   alcoholChance: 0.05
   minSpawnDelay: 0.25
   maxSpawnDelay: 1

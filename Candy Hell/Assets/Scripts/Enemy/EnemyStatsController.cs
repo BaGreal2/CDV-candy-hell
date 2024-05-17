@@ -28,6 +28,7 @@ public class EnemyStatsController : MonoBehaviour
 	void Die()
 	{
 		animator.SetBool("IsDead", true);
+		transform.Translate(Vector2.down * 350f * Time.deltaTime);
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<EnemyMoveController>().enabled = false;
 		this.enabled = false;

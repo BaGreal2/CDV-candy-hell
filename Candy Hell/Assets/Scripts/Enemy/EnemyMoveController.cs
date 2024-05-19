@@ -8,6 +8,7 @@ public class EnemyMoveController : MonoBehaviour
 	public float moveSpeed;
 	public float avoidanceDistance = 1.5f;
 	public float maxVelocity;
+	private bool facingLeft = true;
 	Rigidbody2D rb;
 
 	void Start()
@@ -26,7 +27,7 @@ public class EnemyMoveController : MonoBehaviour
 
 	void MoveTowardsPlayer(GameObject player)
 	{
-		applyForceRelativeToObject(player.transform);
+		ApplyForceRelativeToObject(player.transform);
 	}
 
 	void AvoidOtherEnemies(GameObject[] otherEnemies)
@@ -35,15 +36,19 @@ public class EnemyMoveController : MonoBehaviour
 		{
 			if (otherEnemy != gameObject)
 			{
-				applyForceRelativeToObject(otherEnemy.transform, true);
+				ApplyForceRelativeToObject(otherEnemy.transform, true);
 			}
 		}
 	}
 
-	void applyForceRelativeToObject(Transform destinationObject, bool isReversed = false)
+	void ApplyForceRelativeToObject(Transform destinationObject, bool isReversed = false)
 	{
 		Vector3 vectorDistance = destinationObject.position - transform.position;
 		Vector3 moveDirection = vectorDistance.normalized;
+		if ((moveDirection.x > 0 && facingLeft) || (moveDirection.x < 0 && !facingLeft))
+		{
+			Flip();
+		}
 		if (isReversed)
 		{
 			moveDirection = -moveDirection;
@@ -86,6 +91,13 @@ public class EnemyMoveController : MonoBehaviour
 				rb.velocityY = 0f;
 			}
 		}
+	}
 
+	void Flip()
+	{
+		facingLeft = !facingLeft;
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 }

@@ -8,7 +8,7 @@ public class EnemyStatsController : MonoBehaviour
 	public float maxHealth = 100f;
 	Rigidbody2D rb;
 	float currentHealth;
-	bool isHit;
+	public bool isHit;
 
 	void Start()
 	{
@@ -18,7 +18,7 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Update()
 	{
-		if (isHit && rb.velocity.magnitude < 0.2f)
+		if (isHit && rb.velocity.magnitude < 1f)
 		{
 			rb.velocity = Vector2.zero;
 			isHit = false;
@@ -29,8 +29,8 @@ public class EnemyStatsController : MonoBehaviour
 	{
 		isHit = true;
 		currentHealth -= damage;
+		rb.velocityX = 0f;
 		rb.AddForce(damageDirection * pushForce, ForceMode2D.Impulse);
-		// transform.Translate(damageDirection * pushForce * Time.deltaTime);
 		Debug.Log(currentHealth);
 
 		if (currentHealth <= 0)
@@ -42,10 +42,9 @@ public class EnemyStatsController : MonoBehaviour
 	void Die()
 	{
 		animator.SetBool("IsDead", true);
-		// transform.Translate(Vector2.down * 350f * Time.deltaTime);
+		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<EnemyMoveController>().enabled = false;
 		enabled = false;
 	}
-
 }

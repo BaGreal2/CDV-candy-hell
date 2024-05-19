@@ -27,7 +27,6 @@ public class BoxerCombatController : MonoBehaviour
 	private void Attack()
 	{
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-		Debug.Log(hitEnemies.Length);
 
 		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
 		foreach (Collider2D enemy in hitEnemies)

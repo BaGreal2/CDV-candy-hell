@@ -822,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6257381680544408927, guid: eb0ec4dcd5108450992a0325e7041ca0, type: 3}
       propertyPath: pushForce
-      value: 150
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6257381680544408927, guid: eb0ec4dcd5108450992a0325e7041ca0, type: 3}
       propertyPath: enemyLayers.m_Bits

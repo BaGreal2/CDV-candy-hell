@@ -8,7 +8,7 @@ public class BoxerCombatController : MonoBehaviour
 	public float attackRange = 0.5f;
 	public LayerMask enemyLayers;
 	public float attackDamage = 30f;
-	public float pushForce = 200f;
+	public float pushForce = 10f;
 	private void Start()
 	{
 
@@ -38,7 +38,6 @@ public class BoxerCombatController : MonoBehaviour
 			Vector3 damageDirection = new Vector3(-playerVectorDistance.normalized.x, 0f, 0f);
 			enemy.GetComponent<EnemyStatsController>().TakeDamage(attackDamage, damageDirection, pushForce);
 		}
-
 	}
 
 	private void OnDrawGizmosSelected()

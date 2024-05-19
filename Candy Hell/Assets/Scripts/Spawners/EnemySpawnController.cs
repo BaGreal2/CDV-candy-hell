@@ -13,7 +13,6 @@ public class EnemySpawnController : MonoBehaviour
 	public float maxSpawnDelay = 14f;
 	public int maxAliveAmount = 5;
 	private int aliveAmount = 0;
-	public bool isInverted = false;
 
 
 	private void Awake()
@@ -45,13 +44,7 @@ public class EnemySpawnController : MonoBehaviour
 			};
 
 
-			GameObject enemySpawned = Instantiate(enemyPrefab, position, transform.rotation);
-			if (isInverted)
-			{
-				Vector3 scale = enemySpawned.transform.localScale;
-				scale.x *= -1;
-				enemySpawned.transform.localScale = scale;
-			}
+			Instantiate(enemyPrefab, position, transform.rotation);
 			aliveAmount++;
 
 			yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyStatsController : MonoBehaviour
 {
+	public Transform attackPoint;
+	public LayerMask playerLayers;
 	public Animator animator;
+	public float attackRange = 0.5f;
+	public float attackDamage = 20f;
 	public float maxHealth = 100f;
+	public bool isHit;
 	Rigidbody2D rb;
 	float currentHealth;
-	public bool isHit;
 
 	void Start()
 	{
@@ -23,6 +27,13 @@ public class EnemyStatsController : MonoBehaviour
 			rb.velocity = Vector2.zero;
 			isHit = false;
 		}
+
+		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
+		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+		if (distanceToPlayer <= GetComponent<EnemyMoveController>().avoidanceDistance + 0.2f)
+		{
+			Attack();
+		}
 	}
 
 	public void TakeDamage(float damage, Vector3 damageDirection, float pushForce)
@@ -31,7 +42,6 @@ public class EnemyStatsController : MonoBehaviour
 		currentHealth -= damage;
 		rb.velocityX = 0f;
 		rb.AddForce(damageDirection * pushForce, ForceMode2D.Impulse);
-		Debug.Log(currentHealth);
 
 		if (currentHealth <= 0)
 		{
@@ -46,5 +56,21 @@ public class EnemyStatsController : MonoBehaviour
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<EnemyMoveController>().enabled = false;
 		enabled = false;
+	}
+
+	void Attack()
+	{
+		Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayers);
+
+		hitPlayer.GetComponent<BoxerCombatController>().TakeDamage(attackDamage);
+	}
+
+	void OnDrawGizmosSelected()
+	{
+		if (attackPoint == null)
+		{
+			return;
+		}
+		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 }

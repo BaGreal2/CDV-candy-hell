@@ -5,16 +5,20 @@ using UnityEngine;
 public class BoxerCombatController : MonoBehaviour
 {
 	public Transform attackPoint;
-	public float attackRange = 0.5f;
 	public LayerMask enemyLayers;
+	public float attackRange = 0.5f;
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
-	private void Start()
-	{
+	public float maxHealth = 100f;
 
+	bool isHit;
+	float currentHealth;
+	void Start()
+	{
+		currentHealth = maxHealth;
 	}
 
-	private void Update()
+	void Update()
 	{
 
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -24,7 +28,7 @@ public class BoxerCombatController : MonoBehaviour
 
 	}
 
-	private void Attack()
+	void Attack()
 	{
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -39,12 +43,29 @@ public class BoxerCombatController : MonoBehaviour
 		}
 	}
 
-	private void OnDrawGizmosSelected()
+	void OnDrawGizmosSelected()
 	{
 		if (attackPoint == null)
 		{
 			return;
 		}
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+	}
+
+	public void TakeDamage(float damage)
+	{
+		Debug.Log("Got hit");
+		isHit = true;
+		currentHealth -= damage;
+
+		if (currentHealth <= 0)
+		{
+			Lose();
+		}
+	}
+
+	void Lose()
+	{
+		Debug.Log("Lose!");
 	}
 }

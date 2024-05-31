@@ -38,6 +38,7 @@ public class EnemyStatsController : MonoBehaviour
 
 	public void TakeDamage(float damage, Vector3 damageDirection, float pushForce)
 	{
+		animator.SetTrigger("Hurt");
 		isHit = true;
 		currentHealth -= damage;
 		rb.velocityX = 0f;

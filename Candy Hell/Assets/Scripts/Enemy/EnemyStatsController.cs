@@ -11,6 +11,8 @@ public class EnemyStatsController : MonoBehaviour
 	public float attackDamage = 20f;
 	public float maxHealth = 100f;
 	public bool isHit;
+	public float attackRate = 2f;
+	float nextAttackTime = 0f;
 	Rigidbody2D rb;
 	float currentHealth;
 
@@ -30,9 +32,10 @@ public class EnemyStatsController : MonoBehaviour
 
 		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
 		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-		if (distanceToPlayer <= GetComponent<EnemyMoveController>().avoidanceDistance + 0.2f)
+		if (Time.time >= nextAttackTime && distanceToPlayer <= GetComponent<EnemyMoveController>().avoidanceDistance + 0.2f)
 		{
 			Attack();
+			nextAttackTime = Time.time + 1f / attackRate;
 		}
 	}
 
@@ -61,6 +64,7 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Attack()
 	{
+		animator.SetTrigger("Attack");
 		Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayers);
 
 		hitPlayer.GetComponent<BoxerCombatController>().TakeDamage(attackDamage);

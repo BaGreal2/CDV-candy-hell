@@ -1,0 +1,28 @@
+{
+	"data": [
+		{
+			"levelName": "Level 1",
+			"enemiesCount": 10,
+			"minSpawnDelay": 7,
+			"maxSpawnDelay": 14
+		},
+		{
+			"levelName": "Level 2",
+			"enemiesCount": 16,
+			"minSpawnDelay": 5,
+			"maxSpawnDelay": 12
+		},
+		{
+			"levelName": "Level 3",
+			"enemiesCount": 20,
+			"minSpawnDelay": 4,
+			"maxSpawnDelay": 10
+		},
+		{
+			"levelName": "Level 4",
+			"enemiesCount": 25,
+			"minSpawnDelay": 4,
+			"maxSpawnDelay": 10
+		}
+	]
+}

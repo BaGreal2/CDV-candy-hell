@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1659355426188647524}
   - component: {fileID: 33193125074336860}
   - component: {fileID: 6257381680544408927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boxer
   m_TagString: PlayerTag
   m_Icon: {fileID: 0}

@@ -63,6 +63,7 @@ public class EnemyStatsController : MonoBehaviour
 		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<EnemyMoveController>().enabled = false;
+		GetComponent<SpriteRenderer>().sortingOrder = 1;
 		enabled = false;
 	}
 

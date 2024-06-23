@@ -9,6 +9,7 @@ public class BoxerCombatController : MonoBehaviour
 	public Transform attackPoint;
 	public LayerMask enemyLayers;
 	public HealthController healthController;
+	public GameObject gameOverScreen;
 	public float attackRange = 0.5f;
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
@@ -71,7 +72,7 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Lose()
 	{
-		SceneManager.LoadScene("GameScene");
+		gameOverScreen.SetActive(true);
 		Debug.Log("Lose!");
 	}
 }

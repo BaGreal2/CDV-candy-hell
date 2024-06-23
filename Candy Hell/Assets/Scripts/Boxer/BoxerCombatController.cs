@@ -14,7 +14,7 @@ public class BoxerCombatController : MonoBehaviour
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
 	public float maxHealth = 100f;
-	public float attackRate = 2f;
+	public float attackRate = 0.5f;
 	float nextAttackTime = 0f;
 
 	bool isHit;
@@ -27,9 +27,10 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Time.time >= nextAttackTime && Input.GetKeyDown(KeyCode.Space))
 		{
 			Attack();
+			nextAttackTime = Time.time + 1f / attackRate;
 		}
 	}
 

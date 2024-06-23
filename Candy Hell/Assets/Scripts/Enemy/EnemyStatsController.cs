@@ -44,6 +44,7 @@ public class EnemyStatsController : MonoBehaviour
 		animator.SetTrigger("Hurt");
 		isHit = true;
 		currentHealth -= damage;
+		ScoreManager.instance.AddPoint();
 		rb.velocityX = 0f;
 		rb.AddForce(damageDirection * pushForce, ForceMode2D.Impulse);
 

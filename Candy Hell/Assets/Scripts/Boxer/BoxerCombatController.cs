@@ -6,6 +6,7 @@ public class BoxerCombatController : MonoBehaviour
 {
 	public Transform attackPoint;
 	public LayerMask enemyLayers;
+	public HealthController healthController;
 	public float attackRange = 0.5f;
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
@@ -16,16 +17,15 @@ public class BoxerCombatController : MonoBehaviour
 	void Start()
 	{
 		currentHealth = maxHealth;
+		healthController.SetMaxHealth(maxHealth);
 	}
 
 	void Update()
 	{
-
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Attack();
 		}
-
 	}
 
 	void Attack()
@@ -57,6 +57,7 @@ public class BoxerCombatController : MonoBehaviour
 		Debug.Log("Got hit");
 		isHit = true;
 		currentHealth -= damage;
+		healthController.SetHealth(currentHealth);
 
 		if (currentHealth <= 0)
 		{

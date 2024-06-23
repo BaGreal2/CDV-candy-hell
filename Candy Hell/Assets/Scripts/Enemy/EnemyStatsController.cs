@@ -24,11 +24,11 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Update()
 	{
-		if (isHit && rb.velocity.magnitude < 1f)
-		{
-			rb.velocity = Vector2.zero;
-			isHit = false;
-		}
+		// if (isHit && rb.velocity.magnitude < 1f)
+		// {
+		// 	rb.velocity = Vector2.zero;
+		// 	isHit = false;
+		// }
 
 		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
 		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
@@ -39,14 +39,23 @@ public class EnemyStatsController : MonoBehaviour
 		}
 	}
 
+	IEnumerator StopMovementAfterHit()
+	{
+		yield return new WaitForSeconds(0.3f);
+		isHit = false;
+		rb.velocity = Vector2.zero;
+	}
+
 	public void TakeDamage(float damage, Vector3 damageDirection, float pushForce)
 	{
 		animator.SetTrigger("Hurt");
 		isHit = true;
 		currentHealth -= damage;
 		ScoreManager.instance.AddPoint();
-		rb.velocityX = 0f;
+		rb.velocity = Vector2.zero;
 		rb.AddForce(damageDirection * pushForce, ForceMode2D.Impulse);
+
+		StartCoroutine(StopMovementAfterHit());
 
 		if (currentHealth <= 0)
 		{

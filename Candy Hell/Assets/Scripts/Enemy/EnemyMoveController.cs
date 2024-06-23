@@ -43,6 +43,11 @@ public class EnemyMoveController : MonoBehaviour
 
 	void ApplyForceRelativeToObject(Transform destinationObject, bool isReversed = false)
 	{
+		EnemyStatsController statsController = GetComponent<EnemyStatsController>();
+		if (statsController.isHit)
+		{
+			return;
+		}
 		Vector3 vectorDistance = destinationObject.position - transform.position;
 		Vector3 moveDirection = vectorDistance.normalized;
 		if ((moveDirection.x > 0 && facingLeft) || (moveDirection.x < 0 && !facingLeft))

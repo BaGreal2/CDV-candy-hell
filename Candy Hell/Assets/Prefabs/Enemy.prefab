@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  avoidanceDistance: 1.5
+  avoidanceDistance: 0.5
   maxVelocity: 1
 --- !u!114 &842054554124435830
 MonoBehaviour:
@@ -157,6 +157,7 @@ MonoBehaviour:
   attackDamage: 20
   maxHealth: 100
   isHit: 0
+  attackRate: 2
 --- !u!61 &9110171587461923639
 BoxCollider2D:
   m_ObjectHideFlags: 0

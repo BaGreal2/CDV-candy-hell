@@ -130,9 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 6476114735112466126}
-  attackRange: 0.86
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 30
+  healthController: {fileID: 0}
+  attackRange: 0.86
+  attackDamage: 50
   pushForce: 200
+  maxHealth: 100

@@ -11,6 +11,11 @@ public class EnemyMoveController : MonoBehaviour
 	private bool facingLeft = true;
 	Rigidbody2D rb;
 
+	void Awake()
+	{
+		GameObject.Find("LevelController").GetComponent<LevelController>().firstEnemySpawned = true;
+	}
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoxerCombatController : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class BoxerCombatController : MonoBehaviour
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
 	public float maxHealth = 100f;
+	public float attackRate = 2f;
+	float nextAttackTime = 0f;
 
 	bool isHit;
 	float currentHealth;
@@ -67,6 +71,7 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Lose()
 	{
+		SceneManager.LoadScene("GameScene");
 		Debug.Log("Lose!");
 	}
 }

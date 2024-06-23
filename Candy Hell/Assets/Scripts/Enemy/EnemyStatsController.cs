@@ -14,7 +14,7 @@ public class EnemyStatsController : MonoBehaviour
 	public float attackRate = 2f;
 	float nextAttackTime = 0f;
 	Rigidbody2D rb;
-	float currentHealth;
+	public float currentHealth;
 
 	void Start()
 	{
@@ -24,12 +24,6 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Update()
 	{
-		// if (isHit && rb.velocity.magnitude < 1f)
-		// {
-		// 	rb.velocity = Vector2.zero;
-		// 	isHit = false;
-		// }
-
 		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
 		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 		if (Time.time >= nextAttackTime && distanceToPlayer <= GetComponent<EnemyMoveController>().avoidanceDistance + 0.2f)

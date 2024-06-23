@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoxerCombatController : MonoBehaviour
 {
 	public Transform attackPoint;
 	public LayerMask enemyLayers;
+	public HealthController healthController;
+	public GameObject gameOverScreen;
 	public float attackRange = 0.5f;
 	public float attackDamage = 30f;
 	public float pushForce = 10f;
 	public float maxHealth = 100f;
+	public float attackRate = 0.5f;
+	float nextAttackTime = 0f;
 
 	bool isHit;
 	float currentHealth;
 	void Start()
 	{
 		currentHealth = maxHealth;
+		healthController.SetMaxHealth(maxHealth);
 	}
 
 	void Update()
 	{
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Time.time >= nextAttackTime && Input.GetKeyDown(KeyCode.Space))
 		{
 			Attack();
+			nextAttackTime = Time.time + 1f / attackRate;
 		}
-
 	}
 
 	void Attack()
@@ -57,6 +63,7 @@ public class BoxerCombatController : MonoBehaviour
 		Debug.Log("Got hit");
 		isHit = true;
 		currentHealth -= damage;
+		healthController.SetHealth(currentHealth);
 
 		if (currentHealth <= 0)
 		{
@@ -66,6 +73,7 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Lose()
 	{
+		gameOverScreen.SetActive(true);
 		Debug.Log("Lose!");
 	}
 }

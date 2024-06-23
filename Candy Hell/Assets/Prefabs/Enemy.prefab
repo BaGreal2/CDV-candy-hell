@@ -109,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 6772933110426159277, guid: 4f1486a9f1dcc482fa48338a4e388af7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  avoidanceDistance: 1.5
+  avoidanceDistance: 0.5
   maxVelocity: 1
 --- !u!114 &842054554124435830
 MonoBehaviour:
@@ -157,6 +157,8 @@ MonoBehaviour:
   attackDamage: 20
   maxHealth: 100
   isHit: 0
+  attackRate: 2
+  currentHealth: 0
 --- !u!61 &9110171587461923639
 BoxCollider2D:
   m_ObjectHideFlags: 0

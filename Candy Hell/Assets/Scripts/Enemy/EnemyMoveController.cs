@@ -11,6 +11,11 @@ public class EnemyMoveController : MonoBehaviour
 	private bool facingLeft = true;
 	Rigidbody2D rb;
 
+	void Awake()
+	{
+		GameObject.Find("LevelController").GetComponent<LevelController>().firstEnemySpawned = true;
+	}
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -43,6 +48,11 @@ public class EnemyMoveController : MonoBehaviour
 
 	void ApplyForceRelativeToObject(Transform destinationObject, bool isReversed = false)
 	{
+		EnemyStatsController statsController = GetComponent<EnemyStatsController>();
+		if (statsController.isHit)
+		{
+			return;
+		}
 		Vector3 vectorDistance = destinationObject.position - transform.position;
 		Vector3 moveDirection = vectorDistance.normalized;
 		if ((moveDirection.x > 0 && facingLeft) || (moveDirection.x < 0 && !facingLeft))

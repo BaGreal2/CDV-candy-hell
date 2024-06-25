@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class BoxerCombatController : MonoBehaviour
 {
+	public Animator animator;
 	public Transform attackPoint;
 	public LayerMask enemyLayers;
 	public HealthController healthController;
@@ -16,6 +17,7 @@ public class BoxerCombatController : MonoBehaviour
 	public float maxHealth = 100f;
 	public float attackRate = 0.5f;
 	float nextAttackTime = 0f;
+	int rightHandAttackCount = 0;
 
 	bool isHit;
 	float currentHealth;
@@ -36,6 +38,23 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Attack()
 	{
+		if (!animator.GetBool("isLeftPunch"))
+		{
+			rightHandAttackCount++;
+		}
+		if (rightHandAttackCount >= 2)
+		{
+			rightHandAttackCount = 0;
+			animator.SetBool("isLeftPunch", true);
+		}
+		else
+		{
+			animator.SetBool("isLeftPunch", false);
+		}
+
+		animator.SetTrigger("Attack");
+
+
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
 		GameObject player = GameObject.FindGameObjectWithTag("PlayerTag");
@@ -73,7 +92,7 @@ public class BoxerCombatController : MonoBehaviour
 
 	void Lose()
 	{
+		animator.SetBool("isDead", true);
 		gameOverScreen.SetActive(true);
-		Debug.Log("Lose!");
 	}
 }

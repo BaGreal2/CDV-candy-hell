@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BoxerMoveController : MonoBehaviour
 {
+	public Animator animator;
 	public float moveSpeed = 2f;
 	private float minX, maxX, minY, maxY;
 	private bool facingRight = true;
@@ -28,6 +30,8 @@ public class BoxerMoveController : MonoBehaviour
 		Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f).normalized * moveSpeed * Time.deltaTime;
 
 		Vector3 newPosition = transform.position + movement;
+
+		animator.SetBool("isMoving", horizontalInput != 0f || verticalInput != 0f);
 
 		newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
 		newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);

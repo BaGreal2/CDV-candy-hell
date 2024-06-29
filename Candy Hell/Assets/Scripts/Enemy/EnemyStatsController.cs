@@ -45,7 +45,6 @@ public class EnemyStatsController : MonoBehaviour
 		animator.SetTrigger("Hurt");
 		isHit = true;
 		currentHealth -= damage;
-		ScoreManager.instance.AddPoint();
 		rb.velocity = Vector2.zero;
 		rb.AddForce(damageDirection * pushForce, ForceMode2D.Impulse);
 
@@ -59,6 +58,8 @@ public class EnemyStatsController : MonoBehaviour
 
 	void Die()
 	{
+		int pointsToAdd = Random.Range(1, 3);
+		ScoreManager.instance.AddPoints(pointsToAdd);
 		animator.SetBool("IsDead", true);
 		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		GetComponent<Collider2D>().enabled = false;

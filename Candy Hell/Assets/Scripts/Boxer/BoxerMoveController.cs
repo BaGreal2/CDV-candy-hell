@@ -24,6 +24,10 @@ public class BoxerMoveController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (animator.GetBool("isDead"))
+		{
+			return;
+		}
 		float horizontalInput = Input.GetAxisRaw("Horizontal");
 		float verticalInput = Input.GetAxisRaw("Vertical");
 

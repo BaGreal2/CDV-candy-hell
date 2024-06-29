@@ -52,7 +52,6 @@ public class LevelController : MonoBehaviour
 		}
 		if (isInitialized)
 		{
-			Debug.Log("Checking");
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemyTag");
 			List<GameObject> deadEnemies = new List<GameObject>();
 

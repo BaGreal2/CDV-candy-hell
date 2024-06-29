@@ -2058,9 +2058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pearPrefab: {fileID: 7343062375214659936, guid: 2a71705ae7ef17748b1feb1794f5ddaf, type: 3}
   alcoholPrefab: {fileID: 2333543486834748423, guid: 0960f948fffdce54e9b465ccb32f653d, type: 3}
-  alcoholChance: 0.05
-  minSpawnDelay: 30
-  maxSpawnDelay: 60
+  alcoholChance: 0.68
+  minSpawnDelay: 1
+  maxSpawnDelay: 2
   minAngle: -15
   maxAngle: 15
   minForce: 10

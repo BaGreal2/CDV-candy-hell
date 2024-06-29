@@ -19,7 +19,6 @@ public class BoxerCombatController : MonoBehaviour
 	float nextAttackTime = 0f;
 	int rightHandAttackCount = 0;
 
-	bool isHit;
 	float currentHealth;
 	void Start()
 	{
@@ -79,8 +78,6 @@ public class BoxerCombatController : MonoBehaviour
 
 	public void TakeDamage(float damage)
 	{
-		Debug.Log("Got hit");
-		isHit = true;
 		currentHealth -= damage;
 		healthController.SetHealth(currentHealth);
 

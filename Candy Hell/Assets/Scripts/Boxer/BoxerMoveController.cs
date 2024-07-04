@@ -18,7 +18,7 @@ public class BoxerMoveController : MonoBehaviour
 		minX = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + halfPlayerWidth;
 		maxX = mainCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - halfPlayerWidth;
 		minY = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + halfPlayerHeight;
-		maxY = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y / 2 - 2.3f - halfPlayerHeight;
+		maxY = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y / 2 - 2.6f - halfPlayerHeight;
 	}
 
 	// Update is called once per frame

@@ -186,8 +186,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284273393
-  m_fontColor: {r: 0.9433962, g: 0.82240707, b: 0.36044857, a: 1}
+    rgba: 4281564316
+  m_fontColor: {r: 0.6132076, g: 0.48668674, b: 0.19958171, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2114,8 +2114,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279598244
-  m_fontColor: {r: 0.6415094, g: 0.4851423, b: 0.08170167, a: 1}
+    rgba: 4279400356
+  m_fontColor: {r: 0.6415094, g: 0.46657175, b: 0.069597736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2248,8 +2248,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278235850
-  m_fontColor: {r: 0.7921569, g: 0.69676274, b: 0, a: 1}
+    rgba: 4283208884
+  m_fontColor: {r: 0.7075472, g: 0.58197916, b: 0.29703632, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2345,19 +2345,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1304744300798669157, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.28
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 1304744300798669157, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.28
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 1304744300798669157, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.0146
       objectReference: {fileID: 0}
     - target: {fileID: 1304744300798669157, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1304744300798669157, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2414,7 +2414,7 @@ PrefabInstance:
     - target: {fileID: 6170887028760996851, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -231792337431117464, guid: 592e2a4ef8ec540e4b78747ca790f283, type: 3}
+      objectReference: {fileID: 2363039360228590183, guid: 07fe49bc9008647708db416446d7b721, type: 3}
     - target: {fileID: 6170887028760996851, guid: 37c6360a30fda2548a257ffc24b350c1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

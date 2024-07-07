@@ -4,7 +4,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BoxerCombatController : MonoBehaviour
+public class BoxerCombatController : Sounds
 {
 	public Animator animator;
 	public Transform attackPoint;
@@ -18,6 +18,7 @@ public class BoxerCombatController : MonoBehaviour
 	public float attackRate = 0.5f;
 	float nextAttackTime = 0f;
 	int rightHandAttackCount = 0;
+
 
 	float currentHealth;
 	void Start()
@@ -40,6 +41,7 @@ public class BoxerCombatController : MonoBehaviour
 		if (!animator.GetBool("isLeftPunch"))
 		{
 			rightHandAttackCount++;
+            PlaySound(sounds[0]);
 		}
 		if (rightHandAttackCount >= 2)
 		{
@@ -48,6 +50,7 @@ public class BoxerCombatController : MonoBehaviour
 		}
 		else
 		{
+			PlaySound(sounds[0]);
 			animator.SetBool("isLeftPunch", false);
 		}
 
@@ -79,10 +82,13 @@ public class BoxerCombatController : MonoBehaviour
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
+		PlaySound(sounds[1]);
 		healthController.SetHealth(currentHealth);
 
 		if (currentHealth <= 0)
 		{
+				PlaySound(sounds[2]);
+			
 			Lose();
 		}
 	}

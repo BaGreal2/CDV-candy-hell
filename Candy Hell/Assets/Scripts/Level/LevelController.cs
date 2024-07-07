@@ -21,7 +21,7 @@ public class LevelJSON
 	public LevelParameters[] data;
 }
 
-public class LevelController : MonoBehaviour
+public class LevelController : Sounds
 {
 	public int currentLevelNumber = 0;
 	public GameObject levelCompleteScreen;
